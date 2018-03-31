@@ -50,54 +50,6 @@ header h1 {
 }
 
 
-.account {
-    text-align: center;
-    padding-top:0.25em;
-}
-.account__avatar {
-    color: white;
-    font-size: 0.875em;
-    font-weight: 500;
-    padding: 0;
-    text-transform: capitalize;    
-}
-
-.account__avatar span {
-    display: inline-block;    
-    padding: 0.5em;
-    }
-
-.account__avatar img {
-    width: 35px;
-    height: 35px;    
-    border-radius: 100%;
-    vertical-align: middle;
-    margin-right: 0.5em;
-}
-
-.account__notify {
-    border-right: 1px solid #4d4d71;
-    margin-right: 0.5em;
-    padding: 0.75em;
-    position: relative;
-}
-
-.account__notify img {
-    height: 20px;
-    padding: 0 0.25em;    
-    vertical-align: middle;
-}
-
-.account__notify::after {
-    background-color: limegreen;
-    border-radius: 100%;
-    content: ' ';
-    height: 7px;
-    position: absolute;
-    right: 0.75em;
-    top: 0.75em;
-    width: 7px;
-}
 
 nav {
     background-color: #4d4d71;
@@ -156,35 +108,6 @@ main nav li img {
     opacity: 0.5;
 }
 
-.search {
-    border-radius: 5px;
-    border: 1px solid #e4e2e2;
-    margin: 1em;
-    padding: 0.5rem;
-    position: absolute;
-    right: 0;
-    width: 40%;
-}
-
-.alert {
-    background-color: #7379bd;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    margin: 1em 1em 0;
-    padding: 0.5em;
-    position: relative;
-    text-align: left;
-}
-
-.alert::after {
-    content: "\00d7";
-    display: inline-block;
-    font-size: 20px;
-    position: absolute;
-    right: 14px;
-    top: 5px;
-}
 
 main {
     background-color: #fbfbfb;
@@ -196,6 +119,8 @@ main {
     margin: 0;
     position: relative;
     width: 100%;
+    max-width: 1280px;
+    margin: 2em auto 1em;
 }
 
 .panel__heading {
@@ -218,9 +143,6 @@ main {
     z-index: 0;
 }
 
-.chart canvas {
-    padding: 1em;
-}
 
 .heading {
     color: #aaa;
@@ -232,40 +154,6 @@ main {
     text-transform: uppercase;
 }
 
-.chart__menu {
-    display: inline-block;
-    float: right;
-    line-height: 1.3em;
-    list-style-type: none;
-    margin: 0;
-    padding: 1em;
-}
-
-.chart__menu li {
-    display: inline-block;
-    float: left;
-    font-size: 10px;
-    padding: 0 0.5em;
-}
-
-.chart__menu li a {
-    font-weight: 500;
-}
-
-.chart__menu li.active {
-    background-color: #83c891;
-    border-radius: 1em;
-    font-weight: bold;
-    padding: 0 1em;
-}
-
-.chart__menu li.active a {
-    color: #fff;
-}
-
-.chart canvas {
-    margin-top: 1em;
-}
 
 p {
     margin: 35px auto 0;
@@ -289,9 +177,6 @@ p {
     margin-left: -1px;
 }
 
-.chart.border+.chart.border {
-    border-top: 0;
-}
 
 .social {
     background-color: #fbfbfb;
