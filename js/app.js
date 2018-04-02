@@ -78,6 +78,90 @@ document.querySelector('.modal__wrapper').addEventListener('click', function(evt
     this.className = "modal__wrapper";    
 });    
 
+document.querySelector('.search').addEventListener('keyup', function(evt){
+    // search employees by name
+    let searchResults = filterList(evt.target.value,'name');
+    showSearchResults(searchResults,'name');
+});     
+
+/**
+ * [showSearchResults description]
+ * @param  {[type]} results [description]
+ * @return {[type]}         [description]
+ */
+function showSearchResults (results,filterClass) {
+
+    const filterList = document.querySelectorAll('.' + filterClass);
+    filterListItems = [];
+
+    confirmedMatch = [];
+
+    for (var i = 0; i < filterList.length; i++) {
+        for (var z = 0; z < results.length; z++) {
+            if (results[z] == filterList[i].textContent.toLowerCase() &&
+                results.length !== filterList.length
+                ) {                
+                confirmedMatch.push(filterList[i].parentNode.parentNode.parentNode);
+                //console.log(results[z]);
+            }   
+        }
+    }
+
+    // reset what is being shown
+    var resetFilteredClasses = document.querySelectorAll('.filteredMatch');
+    for (var i = 0; i < resetFilteredClasses.length; i++) {
+        resetFilteredClasses[i].className="block__wrapper";
+    }
+    document.querySelectorAll('.no-matches')[0].style.display="none";
+
+    if (confirmedMatch.length > 0) {
+        // show confirmed results now
+        for (var i = 0; i < confirmedMatch.length; i++) {
+            confirmedMatch[i].className="block__wrapper filteredMatch";
+        }
+        document.querySelectorAll('.no-matches')[0].style.display="none";
+    } else {
+        // show no results
+        document.querySelectorAll('.no-matches')[0].style.display="block";        
+    }
+}
+
+/* search filter using text in each list element */
+function filterList(query, filterClass) {    
+    // create list to filter by    
+    var searchedList = buildFilterList(filterClass);
+
+    // toggle search results if any are found
+    if (query.length > 0) {
+        document.querySelectorAll('.panel__main')[0].className = "panel__main filtered";
+    } else {
+        document.querySelectorAll('.panel__main')[0].className = "panel__main";
+        document.querySelectorAll('main')[0].className = "";
+        document.querySelectorAll('.no-matches')[0].style.display="none";
+    }
+
+    // run filter
+    return searchedList.filter(function(el) {
+        return el.toLowerCase().indexOf(query.toLowerCase()) > -1;
+    });    
+
+}
+
+/**
+ * [buildFilterList pass in class to build list that you can filter by]
+ * @param  {[type]} filterClass [description]
+ * @return {[type]}             [description]
+ */
+function buildFilterList (filterClass) {
+    const filterList = document.querySelectorAll('.' + filterClass);
+    filterListItems = [];
+    for (var i = 0; i < filterList.length; i++) {
+        filterListItems[i] = filterList[i].textContent;
+    }    
+    return filterListItems;
+}
+
+
 /**
  * [gatherEmployeeData description]
  * @return {[type]} [description]
