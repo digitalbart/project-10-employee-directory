@@ -117,9 +117,10 @@ function showSearchResults (results,filterClass) {
     if (confirmedMatch.length > 0) {
         // show confirmed results now
         for (var i = 0; i < confirmedMatch.length; i++) {
-            confirmedMatch[i].className="block__wrapper filteredMatch";
+            if (confirmedMatch[i].nodeName !== "main"){
+                confirmedMatch[i].className="block__wrapper filteredMatch";
+            }
         }
-        document.querySelectorAll('.no-matches')[0].style.display="none";
     } else {
         // show no results
         document.querySelectorAll('.no-matches')[0].style.display="block";        
