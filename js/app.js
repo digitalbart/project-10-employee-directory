@@ -117,7 +117,7 @@ function showSearchResults (results,filterClass) {
     if (confirmedMatch.length > 0) {
         // show confirmed results now
         for (var i = 0; i < confirmedMatch.length; i++) {
-            if (confirmedMatch[i].nodeName !== "main"){
+            if (confirmedMatch[i].nodeName !== "MAIN"){
                 confirmedMatch[i].className="block__wrapper filteredMatch";
             }
         }
