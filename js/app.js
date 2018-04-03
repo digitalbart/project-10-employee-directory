@@ -82,6 +82,10 @@ document.querySelector('.search').addEventListener('keyup', function(evt){
     // search employees by name
     let searchResults = filterList(evt.target.value,'name');
     showSearchResults(searchResults,'name');
+
+    if (evt.target.value < 1) {
+        document.querySelectorAll('.no-matches')[0].style.display="none";
+    }
 });     
 
 /**
